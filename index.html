@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1c100c">
+  <meta name="description" content="ORI — museu virtual em primeira pessoa sobre afrofuturismo, cidades e cultura negra: arquitetos, personagens, religiosidade, arte, movimentos e subculturas.">
+  <title>ORI — Afrofuturismo, cidades e cultura negra | Museu 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app" aria-label="Museu virtual ORI">
+    <div id="world" aria-label="Ambiente 3D do museu"></div>
+
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="topbar">
+      <a href="#" class="wordmark" aria-label="ORI, início">
+        <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="wordmark-copy"><strong>ORI</strong><small>MUSEU DE MEMÓRIAS VIVAS</small></span>
+      </a>
+      <div class="top-center"><span class="signal"></span> EXPERIÊNCIA IMERSIVA <span class="top-separator">/</span> 3D</div>
+      <div class="top-actions">
+        <button class="small-icon" id="qualityBtn" title="Alternar qualidade gráfica" aria-label="Alternar qualidade gráfica"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
+        <button class="small-icon" id="helpBtn" title="Ajuda e controles" aria-label="Ajuda e controles"><span>?</span></button>
+      </div>
+    </header>
+
+    <section class="welcome" id="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-kicker"><span class="kicker-line"></span> AFROFUTURISMO · CIDADES · CULTURA NEGRA <span class="kicker-number">6 TEMAS</span></div>
+      <h1 id="welcomeTitle">A cidade que<br>a cultura negra<br><em>imagina.</em></h1>
+      <p class="welcome-copy">Caminhe por seis salas sobre arquitetos, personagens, fé, arte, movimentos e subculturas negras que desenham as cidades do amanhã. Chegue perto de cada obra e aperte E para ler a história.</p>
+      <button class="cta" id="enterBtn"><span>INICIAR VISITA</span><b>↗</b></button>
+      <div class="welcome-meta"><span>SEM PRESSA. SEM FRONTEIRAS.</span><span class="meta-divider"></span><span>UMA EXPERIÊNCIA PARA EXPLORAR</span></div>
+      <div class="welcome-ornament" aria-hidden="true">✳</div>
+    </section>
+
+    <section class="hud" id="hud" aria-label="Informações da visita">
+      <div class="hud-location"><span class="location-symbol">✳</span><div><small>VOCÊ ESTÁ EM</small><strong id="roomName">ÁTRIO DAS ORIGENS</strong></div></div>
+      <div class="tour-progress"><div class="progress-heading"><span>PERCURSO</span><span id="progressText">01 / 06</span></div><div class="progress-track"><span id="progressFill"></span></div></div>
+      <button id="mapBtn" class="map-button"><span>⌖</span> MAPA DA VISITA</button>
+    </section>
+
+    <div class="center-reticle" id="reticle" aria-hidden="true"><span></span><i></i></div>
+    <div id="interactHint" class="interact-hint"><kbd>E</kbd><span>OBSERVAR OBRA</span></div>
+    <button id="touchInteract" class="touch-interact" aria-label="Observar obra em destaque">OBSERVAR OBRA <b>↗</b></button>
+
+    <div class="controls-legend" id="controlsLegend">
+      <div class="key-cluster"><kbd>W</kbd><div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div></div>
+      <span>CAMINHAR</span><i></i><span class="mouse-symbol">◎</span><span>MOVER O OLHAR</span><i></i><kbd>E</kbd><span>INTERAGIR</span>
+    </div>
+
+    <div class="mobile-pad" id="mobilePad" aria-label="Controles de movimento para celular">
+      <button data-move="forward" class="pad-up" aria-label="Avançar">⌃</button><button data-move="left" class="pad-left" aria-label="Esquerda">‹</button><button data-move="back" class="pad-down" aria-label="Recuar">⌄</button><button data-move="right" class="pad-right" aria-label="Direita">›</button>
+    </div>
+    <div class="look-tip" id="lookTip">ARRASTE PARA OLHAR</div>
+
+    <aside class="exhibit-panel" id="exhibitPanel" aria-live="polite" aria-labelledby="exhibitTitle">
+      <button class="panel-close" id="closeExhibit" aria-label="Fechar descrição">×</button>
+      <div class="panel-topline"><span id="exhibitEyebrow">ACERVO · 001</span><span class="panel-star">✳</span></div>
+      <img id="exhibitImg" class="exhibit-img" alt="">
+      <h2 id="exhibitTitle">A memória também constrói.</h2>
+      <div class="panel-rule"></div>
+      <p id="exhibitText">Cada espaço carrega conhecimento.</p>
+      <div class="panel-bottom"><span id="exhibitCredit">ARQUITETURA · MEMÓRIA</span><span>ORI <b>↗</b></span></div>
+    </aside>
+
+    <aside class="map-panel" id="mapPanel" aria-labelledby="mapTitle">
+      <button class="panel-close" id="closeMap" aria-label="Fechar mapa">×</button>
+      <div class="eyebrow">ORIENTAÇÃO ESPACIAL</div><h2 id="mapTitle">Mapa da visita</h2><p class="map-description">Seis temas para atravessar, do projeto da cidade ao palco da rua.</p>
+      <div class="map-graphic"><div class="map-axis"></div><div class="map-stop stop-1"><i></i><span>01 · ARQUITETOS</span></div><div class="map-stop stop-2"><i></i><span>02 · PERSONAGENS</span></div><div class="map-stop stop-3"><i></i><span>03 · RELIGIOSIDADE</span></div><div class="map-stop stop-4"><i></i><span>04 · ARTE AFRO</span></div><div class="map-stop stop-5"><i></i><span>05 · MOVIMENTOS</span></div><div class="map-stop stop-6"><i></i><span>06 · SUBCULTURAS</span></div></div>
+      <div class="map-footer"><span>VOCÊ AVANÇA NO SEU RITMO</span><span>✳</span></div>
+    </aside>
+
+    <div class="help-overlay" id="helpOverlay" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+      <div class="help-panel"><button class="panel-close" id="closeHelp" aria-label="Fechar ajuda">×</button><div class="eyebrow">GUIA DE EXPLORAÇÃO</div><h2 id="helpTitle">Explore no seu ritmo.</h2>
+        <div class="help-item"><div class="key-grid"><kbd>W</kbd><div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div></div><div><strong>Movimente-se</strong><p>W A S D ou ↑ ↓ para andar, ← → para girar, Shift para correr.</p></div></div>
+        <div class="help-item"><div class="mouse-card">◎</div><div><strong>Olhe ao redor</strong><p>No computador, mova o mouse. No celular, arraste o dedo pela cena.</p></div></div>
+        <div class="help-item"><kbd class="single-key">E</kbd><div><strong>Descubra uma obra</strong><p>Olhe para uma peça e pressione E para ler sua história.</p></div></div>
+        <div class="help-item"><kbd class="single-key">ESC</kbd><div><strong>Liberar o cursor</strong><p>Pressione Esc para sair do modo de olhar travado.</p></div></div>
+        <button class="cta cta-wide" id="resumeBtn"><span>VOLTAR À VISITA</span><b>↗</b></button>
+      </div>
+    </div>
+
+    <div class="quality-toast" id="qualityToast">QUALIDADE GRÁFICA: <b>ALTA</b></div>
+    <footer class="footer"><span>AFROFUTURISMO <b>·</b> CIDADES <b>·</b> CULTURA NEGRA</span><span>ORI — UM MUSEU DE MEMÓRIAS VIVAS <i>✳</i></span></footer>
+    <div class="loading" id="loading"><div class="loading-mark">✳</div><p>CONSTRUINDO A CIDADE DO AMANHÃ</p><div class="loading-track"><span></span></div></div>
+  </main>
+  <script type="module">
+    try {
+      await import('./js/main.js');
+    } catch (error) {
+      console.error('Falha ao iniciar o Museu ORI:', error);
+      const loading = document.getElementById('loading');
+      loading.classList.remove('done');
+      loading.innerHTML = `
+        <div class="loading-mark">✳</div>
+        <h1 style="font-family: Georgia, serif; font-weight: 500;">Não foi possível abrir o museu</h1>
+        <p style="max-width: 520px; padding: 0 24px; text-align: center; line-height: 1.8;">
+          Abra a pasta pelo Live Server no VS Code ou execute INICIAR_MUSEU.bat no Windows.
+          Confira também se a internet está ativa, pois a biblioteca 3D é carregada online.
+        </p>
+        <button id="reloadMuseu" style="margin-top:18px;padding:13px 18px;border:0;background:#c76a3b;color:#fff;font:11px monospace;letter-spacing:.1em;cursor:pointer;">TENTAR NOVAMENTE</button>`;
+      document.getElementById('reloadMuseu').addEventListener('click', () => location.reload());
+    }
+  </script>
+</body>
+</html>

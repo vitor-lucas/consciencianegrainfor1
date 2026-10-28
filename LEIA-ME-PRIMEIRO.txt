@@ -1,0 +1,34 @@
+ORI — MUSEU AFROTURISTICO 3D | EDICAO 4
+========================================
+
+COMO ABRIR NO WINDOWS (JEITO MAIS SIMPLES)
+1. Extraia o arquivo ZIP inteiro para uma pasta.
+2. Abra a pasta extraida.
+3. De dois cliques em INICIAR_MUSEU.bat.
+4. Uma janela preta do servidor vai abrir e o navegador vai entrar no museu.
+5. Mantenha a janela do servidor aberta durante a visita.
+
+ALTERNATIVA PELO VS CODE
+1. Abra a pasta extraida inteira no VS Code (nao abra somente o index.html).
+2. Instale a extensao Live Server, se ainda nao estiver instalada.
+3. Clique com o botao direito em index.html.
+4. Selecione "Open with Live Server".
+
+IMPORTANTE
+- E necessario ter internet para carregar a biblioteca Three.js de um CDN.
+- Se aparecer a mensagem "Nao foi possivel abrir o museu", confira a internet e use um servidor local (Live Server ou INICIAR_MUSEU.bat).
+- Nao abra index.html com duplo clique: modulos JavaScript 3D podem ser bloqueados pelo navegador em file://.
+
+CONTROLES
+W/A/S/D ou setas: mover
+Mouse: olhar ao redor
+E: observar obra quando estiver mirando nela
+M ou botao de mapa: mapa da visita
+Shift: andar mais rapido
+Esc: liberar o mouse/fechar painel
+Celular: direcional na tela e arrastar a cena para olhar
+
+ARQUIVOS
+index.html: pagina e interface
+css/style.css: estilo visual e responsividade
+js/main.js: cena 3D, arquitetura, obras e controles
